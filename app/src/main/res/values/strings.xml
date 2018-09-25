@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">InstagramClone</string>
+    <string name="subir_foto">Subir Foto</string>
+    <string name="ver_fotos">Ver fotos</string>
+    <string name="selecionar_foto">Selectionar foto</string>
+    <string name="foto_comentario_hint">Adicione um comentario</string>
+    <string name="salvar">Salvar</string>
+</resources>

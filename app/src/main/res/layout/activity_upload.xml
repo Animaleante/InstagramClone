@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_select_foto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/selecionar_foto"
+        android:onClick="selectPhoto"/>
+
+    <EditText
+        android:id="@+id/txt_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/foto_comentario_hint"/>
+
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/imagem_preview"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <Button
+        android:id="@+id/btn_salva_foto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/salvar"
+        android:onClick="savePhoto"/>
+
+</LinearLayout>
