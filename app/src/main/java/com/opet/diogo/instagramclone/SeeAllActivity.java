@@ -2,7 +2,9 @@ package com.opet.diogo.instagramclone;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +25,7 @@ import java.util.List;
 public class SeeAllActivity extends Activity {
 
     private ProgressBar progressLoad;
+    private ListView listView;
 
     private DatabaseReference mDatabaseRef;
 
@@ -32,6 +35,7 @@ public class SeeAllActivity extends Activity {
         setContentView(R.layout.activity_see_all);
 
         progressLoad = findViewById(R.id.progressLoad);
+        listView = findViewById(R.id.list);
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
@@ -42,11 +46,16 @@ public class SeeAllActivity extends Activity {
                 List<Photo> photos = new ArrayList<Photo>();
                 for(DataSnapshot livroSnapshot : dataSnapshot.getChildren()){
                     photos.add(livroSnapshot.getValue(Photo.class));
+                    Log.d("DEBUG", livroSnapshot.getValue(Photo.class).getPhotoComment());
                 }
 
 //                ArrayAdapter<String> adapter = new ArrayAdapter<String>(SeeAllActivity.this, android.R.layout.simple_list_item_1, livrosNomes);
 //                listLivros.setAdapter(adapter);
+                SeeAllAdapter customAdapter = new SeeAllAdapter(getApplicationContext(), R.layout.single_list_item, photos);
+                listView.setAdapter(customAdapter);
+
                 progressLoad.setVisibility(ProgressBar.GONE);
+                listView.setVisibility(ListView.VISIBLE);
             }
 
             @Override
